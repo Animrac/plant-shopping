@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
-const CartItem = ({ onContinueShopping }) => {
+const CartItem = ({ onContinueShopping, onRemoveItem }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
   let totalMoney = 0.0; //resets to 0 when we open the cart since there might be new items
@@ -16,7 +16,7 @@ const CartItem = ({ onContinueShopping }) => {
     }
     
   const handleCheckoutShopping = (e) => {
-    alert('Functionality to be added for future reference');
+    alert('Thank you for shopping with us!');
   };
 
   const handleIncrement = (item) => {
@@ -31,6 +31,7 @@ const CartItem = ({ onContinueShopping }) => {
   const handleRemove = (item) => {
     // cart[item.name].quantity = cart[item.name].quantity++; but we're supposed to focus on the state
     dispatch(removeItem(item));
+    onRemoveItem(item); //needed to poke this prop
   };
 
   // Calculate total cost based on quantity for an item
@@ -55,6 +56,8 @@ const CartItem = ({ onContinueShopping }) => {
               </div>
               <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
               <button className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</button>
+              {/* <button className="cart-item-delete" onClick={(item) => onRemoveItem(item)}>Delete</button> */}
+              
             </div>
           </div>
         ))}

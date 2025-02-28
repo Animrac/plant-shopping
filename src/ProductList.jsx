@@ -8,7 +8,6 @@ import CartSlice, { addItem, removeItem, updateQuantity } from "./CartSlice";
 function ProductList() {
     const dispatch = useDispatch();
     const totalItems = useSelector(state => state.cart.totalItems);
-    // const [totalCount, setTotalCount] = useState(0);
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({}); //state to control if a plant was added to the cart
@@ -263,6 +262,14 @@ const handlePlantsClick = (e) => {
        [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
      }));
   };
+  
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeItem(product));
+    setAddedToCart((prevState) => ({
+       ...prevState,
+       [product.name]: false, // Set the product name as key and value as true to indicate it's added to cart
+     }));
+  };
 
     return (
         <div>
@@ -309,7 +316,7 @@ const handlePlantsClick = (e) => {
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} onRemoveItem={handleRemoveFromCart}/>
 )}
     </div>
     );
