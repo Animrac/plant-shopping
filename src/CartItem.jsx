@@ -8,11 +8,6 @@ const CartItem = ({ onContinueShopping }) => {
   const dispatch = useDispatch();
   let totalMoney = 0.0; //resets to 0 when we open the cart since there might be new items
 
-  // Calculate total amount for all products in the cart
-//   const calculateTotalAmount = () => {
-//     for (item in cart) {
-//         totalMoney = item.quantity*parseFloat(item.cost.substring(1));
-//     }
     const calculateTotalAmount = () => {
         cart.forEach((item) => {
             totalMoney = totalMoney + (item.quantity*parseFloat(item.cost.substring(1)))
@@ -25,13 +20,11 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleIncrement = (item) => {
-    // cart[item.name].quantity = cart[item.name].quantity++;
     dispatch(updateQuantity({name: item.name, quantity: item.quantity + 1}));
     console.log(item.name)
   };
 
   const handleDecrement = (item) => {
-    // cart[item.name].quantity = cart[item.name].quantity--;
     dispatch(updateQuantity({name: item.name, quantity: item.quantity - 1}));
   };
 
