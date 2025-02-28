@@ -25,7 +25,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1100px;
+    width: 100%;
+    margin-left:20px;
 }
 
 .navbar li {
@@ -140,10 +141,11 @@ body {
     text-decoration: none;
 }
 .tag {
-    width: 400px;
+    width: 450px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-right: 20px;
 }
 
 .tag img {
@@ -156,7 +158,7 @@ body {
 .luxury {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 650px;
     font-size: 19px;
 }
@@ -249,4 +251,20 @@ body {
       .ul div {
         text-align: center; /* Align text to the center */
       }
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -5px; /* Adjust vertical position */
+    right: -5px; /* Adjust horizontal position */
+    background-color: red;
+    color: white;
+    border-radius: 50%; /* Make it a circle */
+    padding: 5px; /* Add some padding */
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    height: 20px;
   }
