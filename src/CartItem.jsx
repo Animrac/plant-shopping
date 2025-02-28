@@ -16,7 +16,7 @@ const CartItem = ({ onContinueShopping, onRemoveItem }) => {
     }
     
   const handleCheckoutShopping = (e) => {
-    alert('Thank you for shopping with us!');
+    alert('Thank you for shopping with us! This feature is coming soon.');
   };
 
   const handleIncrement = (item) => {
